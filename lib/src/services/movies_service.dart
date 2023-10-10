@@ -11,7 +11,7 @@ class MoviesService {
             'https://api.themoviedb.org/3/search/movie?query=$searchTerm&include_adult=false&language=en-US&page=1'),
         headers: {
           'Authorization':
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZGQ0Mzg3NjE4Y2UxMTY4YWFmZjhiM2QyOWIyMzBhYSIsInN1YiI6IjVlNGFhNmI4OWI4NjE2MDAxNjY0MWQxNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f_Zj3UfmYxpEld-RB8aCTAaXcsD-pEiaXn5M77UCgM8'
+              'Your API Token from https://developer.themoviedb.org/reference/intro/getting-started'
         });
     final json = jsonDecode(response.body);
     return MovieList.fromJson(json);
