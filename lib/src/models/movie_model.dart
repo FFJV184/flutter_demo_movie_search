@@ -1,0 +1,55 @@
+class Movie {
+  bool adult;
+  String backdropPath;
+  List<int> genreIds;
+  int id;
+  String originalLanguage;
+  String originalTitle;
+  String overview;
+  double popularity = 0;
+  String posterPath;
+  DateTime releaseDate;
+  String title;
+  bool video;
+  double voteAverage;
+  int voteCount;
+
+  Movie(
+      {required this.adult,
+        required this.backdropPath,
+        required this.genreIds,
+        required this.id,
+        required this.originalLanguage,
+        required this.originalTitle,
+        required this.overview,
+        required this.popularity,
+        required this.posterPath,
+        required this.releaseDate,
+        required this.title,
+        required this.video,
+        required this.voteAverage,
+        required this.voteCount});
+
+
+  factory Movie.fromJson(Map<String, dynamic> json) {
+    final [year, month, date] = json['release_date'].split('-');
+    return Movie(
+      adult: json['adult'] ?? false,
+      backdropPath: json['backdrop_path'] ?? '',
+      genreIds: List<int>.from(json['genre_ids'] ?? []),
+      id: json['id'] ?? 0,
+      originalLanguage: json['original_language'] ?? '',
+      originalTitle: json['original_title'] ?? '',
+      overview: json['overview'] ?? '',
+      popularity: json['popularity'] ?? 0.0,
+      posterPath: json['poster_path'] ?? '',
+      releaseDate: DateTime(int.parse(year),int.parse(month),int.parse(date)),
+      title: json['title'] ?? '',
+      video: json['video'] ?? false,
+      voteAverage: json['vote_average'] ?? 0.0,
+      voteCount: json['vote_count'] ?? 0,
+    );
+  }
+
+
+}
